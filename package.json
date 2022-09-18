@@ -1,0 +1,18 @@
+{
+  "name": "morningbot",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.3.0",
+    "moment-duration-format": "^2.3.2",
+    "moment-timezone": "^0.5.37",
+    "undici": "^5.10.0"
+  },
+  "description": ""
+}
