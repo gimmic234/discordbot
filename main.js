@@ -136,23 +136,25 @@ async function readConfig()
                 "datetime": value[4],
                 "timezone": value[5]
             };
-            if (newEntry.command.includes("||")) {
-                var commandArray = newEntry.command.split("||");
-                commandArray.forEach(c => {
-                    var singleCommand = c.trim();
-                    if (commandFull[singleCommand] != null) {
-                    commandFull[singleCommand].push(newEntry);
-                    } else {
-                        commandFull[singleCommand] = [newEntry];
-                        commandList.push(singleCommand);
-                    }        
-                });
-            } else {
-                if (commandFull[newEntry.command] != null) {
-                    commandFull[newEntry.command].push(newEntry);
+            if (newEntry.command != null) {
+                if (newEntry.command.includes("||")) {
+                    var commandArray = newEntry.command.split("||");
+                    commandArray.forEach(c => {
+                        var singleCommand = c.trim();
+                        if (commandFull[singleCommand] != null) {
+                        commandFull[singleCommand].push(newEntry);
+                        } else {
+                            commandFull[singleCommand] = [newEntry];
+                            commandList.push(singleCommand);
+                        }        
+                    });
                 } else {
-                    commandFull[newEntry.command] = [newEntry];
-                    commandList.push(value[0]);
+                    if (commandFull[newEntry.command] != null) {
+                        commandFull[newEntry.command].push(newEntry);
+                    } else {
+                        commandFull[newEntry.command] = [newEntry];
+                        commandList.push(value[0]);
+                    }
                 }
             }
         });
